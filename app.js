@@ -1,24 +1,29 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const sequelize = require('./config/database');
+const { sequelize } = require('./models');
 
-// Middlewares
+// Middleware
 app.use(express.json());
 
-// Models e associações
-require('./models/usuario');
-require('./models/listaCompras');
-require('./models/produto');
-require('./models/listaProduto');
-require('./models/roleUsuario');
-require('./models/relacionamentos');
+// Rotas
+const authRoutes = require('./routes/auth');
+const protegidoRoutes = require('./routes/protegidoExample'); // exemplo de rota protegida
+const adminRoutes = require('./routes/admin');
 
-// Conectar e sincronizar
-sequelize.sync({ force: false })
+app.use('/api/admin', adminRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/protegido', protegidoRoutes);
+
+// Banco de dados
+sequelize.sync({ force: true })
   .then(() => console.log('Banco sincronizado'))
   .catch(err => console.error(err));
 
+console.log('passou');
+
 // Iniciar servidor
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`---------------\nServidor rodando na porta ${PORT}\n---------------\n`);
 });
