@@ -74,9 +74,10 @@
   }
   
   .btn.register {
-    background-color: #000;
-    color: #fff;
+    background-color: #36e0a1;
+    color: #000;
   }
+  
   
   .btn.register svg {
     fill: white;
