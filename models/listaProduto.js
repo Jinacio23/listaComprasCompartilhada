@@ -1,14 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
   const ListaProduto = sequelize.define('ListaProduto', {
-    tb_listaCompras_id_listaCompras: {
+    tb_listaCompras_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false
+      allowNull: true
     },
     tb_Produto_id_Produto: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false
+      allowNull: true
     }
   }, {
     tableName: 'tb_listaCompras_has_tb_produto',

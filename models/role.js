@@ -4,9 +4,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: true
       },
-      name: {type:DataTypes.STRING(45),allowNull: false},
+      name: {type:DataTypes.STRING(45),allowNull: true},
     }, {
       tableName: 'tb_role',
       timestamps: false

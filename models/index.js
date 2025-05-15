@@ -1,15 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const dbConfig = require('../config/database');
 
 // Cria a instância do Sequelize
-const sequelize = new Sequelize({
-  username: 'root',
-  password: '',
-  database: 'listacompras',
-  host: 'localhost',
-  dialect: 'mysql',
-  port: 3306,
-  logging: false, // opcional, remove logs no console
-});
+const sequelize = new Sequelize(dbConfig);
 
 // Importa modelos
 const Usuario = require('./usuario')(sequelize, DataTypes);
@@ -22,7 +15,7 @@ const ListaProduto = require('./listaProduto')(sequelize, DataTypes);
 // Relacionamento N:N: ListaCompras <-> Produto
 ListaCompras.belongsToMany(Produto, {
   through: 'tb_listaCompras_has_tb_produto',
-  foreignKey: 'tb_listaCompras_id_listaCompras'
+  foreignKey: 'tb_listaCompras_id'
 });
 Produto.belongsToMany(ListaCompras, {
   through: 'tb_listaCompras_has_tb_produto',
@@ -32,29 +25,29 @@ Produto.belongsToMany(ListaCompras, {
 // Relacionamento N:N:N: Usuario <-> Role <-> ListaCompras via UsuarioRole
 Usuario.belongsToMany(Role, {
   through: UsuarioRole,
-  foreignKey: 'tb_usuario_id_usuario'
+  foreignKey: 'usuario_id'
 });
 Role.belongsToMany(Usuario, {
   through: UsuarioRole,
-  foreignKey: 'tb_role_id_role'
+  foreignKey: 'role_id'
 });
 
 Usuario.belongsToMany(ListaCompras, {
   through: UsuarioRole,
-  foreignKey: 'tb_usuario_id_usuario'
+  foreignKey: 'usuario_id'
 });
 ListaCompras.belongsToMany(Usuario, {
   through: UsuarioRole,
-  foreignKey: 'tb_listacompras_id_listaCompras'
+  foreignKey: 'tb_listaCompras_id'
 });
 
 Role.belongsToMany(ListaCompras, {
   through: UsuarioRole,
-  foreignKey: 'tb_role_id_role'
+  foreignKey: 'role_id'
 });
 ListaCompras.belongsToMany(Role, {
   through: UsuarioRole,
-  foreignKey: 'tb_listacompras_id_listaCompras'
+  foreignKey: 'tb_listaCompras_id'
 });
 
 module.exports = {

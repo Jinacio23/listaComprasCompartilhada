@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false
+      allowNull: true
     },
-    nomeProduto: {type:DataTypes.STRING(45),allowNull: false},
-    descricao: {type:DataTypes.STRING(250),allowNull: false},
-    quantidade: {type:DataTypes.INTEGER,allowNull: false},
-    comprado: {type:DataTypes.BOOLEAN,allowNull: false},
-    categoria: {type:DataTypes.STRING(50),allowNull: false}
+    nomeProduto: {type:DataTypes.STRING(45),allowNull: true},
+    descricao: {type:DataTypes.STRING(250),allowNull: true},
+    quantidade: {type:DataTypes.INTEGER,allowNull: true},
+    comprado: {type:DataTypes.BOOLEAN,allowNull: true},
+    categoria: {type:DataTypes.STRING(50),allowNull: true}
   }, {
     tableName: 'tb_produto',
     timestamps: false

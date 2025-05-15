@@ -16,11 +16,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/protegido', protegidoRoutes);
 
 // Banco de dados
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
   .then(() => console.log('Banco sincronizado'))
   .catch(err => console.error(err));
-
-console.log('passou');
 
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;

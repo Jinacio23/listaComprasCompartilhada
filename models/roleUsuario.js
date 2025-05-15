@@ -1,31 +1,33 @@
 module.exports = (sequelize, DataTypes) => {
   const UsuarioRole = sequelize.define('UsuarioRole', {
-    tb_usuario_id_usuario: {
+    usuarioId: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       primaryKey: true,
-      allowNull: false
+      field: 'usuario_id'
     },
-    tb_role_id_role: {
+    roleId: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       primaryKey: true,
-      allowNull: false
+      field: 'role_id'
     },
-    tb_listacompras_id_listaCompras: {
+    listaComprasId: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       primaryKey: true,
-      allowNull: false
+      field: 'tb_listaCompras_id'
     }
   }, {
     tableName: 'tb_usuario_has_tb_role',
     timestamps: false,
     indexes: [
       {
-        name: 'idx_usuario_role_lista',
+        name: 'uniq_usr_role_lista',
         unique: true,
-        fields: ['tb_usuario_id_usuario', 'tb_role_id_role', 'tb_listacompras_id_listaCompras']
+        fields: ['usuario_id', 'role_id', 'tb_listaCompras_id']
       }
-    ],
-    primaryKey: true
+    ]
   });
 
   return UsuarioRole;
