@@ -1,14 +1,34 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+module.exports = (sequelize, DataTypes) => {
+  const UsuarioRole = sequelize.define('UsuarioRole', {
+    usuarioId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      primaryKey: true,
+      field: 'usuario_id'
+    },
+    roleId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      primaryKey: true,
+      field: 'role_id'
+    },
+    listaComprasId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      primaryKey: true,
+      field: 'tb_listaCompras_id'
+    }
+  }, {
+    tableName: 'tb_usuario_has_tb_role',
+    timestamps: false,
+    indexes: [
+      {
+        name: 'uniq_usr_role_lista',
+        unique: true,
+        fields: ['usuario_id', 'role_id', 'tb_listaCompras_id']
+      }
+    ]
+  });
 
-const RoleUsuario = sequelize.define('RoleUsuario', {
-  tb_role_id_role: DataTypes.INTEGER,
-  tb_usuario_id_usuario: DataTypes.INTEGER,
-  tb_listaCompras_id_listaCompras: DataTypes.INTEGER,
-  nome: DataTypes.STRING(45),
-}, {
-  tableName: 'tb_role_has_tb_usuario',
-  timestamps: false,
-});
-
-module.exports = RoleUsuario;
+  return UsuarioRole;
+};
