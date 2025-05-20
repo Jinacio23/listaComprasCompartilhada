@@ -11,14 +11,18 @@ app.use(express.json());
 const authRoutes = require('./routes/auth');
 const protegidoRoutes = require('./routes/protegidoExample'); // exemplo de rota protegida
 const adminRoutes = require('./routes/admin');
-const usuarioRoutes = require('./routes/usuarioRoute')
-const produtoRoutes = require('./routes/produtoRoute')
+const usuarioRoutes = require('./routes/usuarioRoute');
+const produtoRoutes = require('./routes/produtoRoute');
+const listaRoutes = require('./routes/listaCompraRoute');
+const roleRoutes = require('./routes/roleRoute');
 
 app.use('/api/admin', adminRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/protegido', protegidoRoutes);
 app.use('/api/usuario', usuarioRoutes);
 app.use('/api/produto', produtoRoutes);
+app.use('/api/lista', listaRoutes);
+app.use('/api/role', roleRoutes);
 
 // Iniciar servidor
 async function iniciar() {
