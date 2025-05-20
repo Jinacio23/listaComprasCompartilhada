@@ -10,10 +10,8 @@ module.exports = (sequelize, DataTypes) => {
        type: DataTypes.STRING(45),
        allowNull: true
       },
-    dataCriacao: DataTypes.DATE
   }, {
-    tableName: 'tb_listaCompras',
-    timestamps: false
+    tableName: 'tb_listaCompras'
   });
 
   return ListaCompras;
