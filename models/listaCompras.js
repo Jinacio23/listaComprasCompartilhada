@@ -6,11 +6,20 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: true
     },
-    nome:{
-       type: DataTypes.STRING(45),
-       allowNull: true
-      },
-    dataCriacao: DataTypes.DATE
+    nome: {
+      type: DataTypes.STRING(45),
+      allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    }
   }, {
     tableName: 'tb_listaCompras',
     timestamps: false
