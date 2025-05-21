@@ -15,6 +15,7 @@ const usuarioRoutes = require('./routes/usuarioRoute');
 const produtoRoutes = require('./routes/produtoRoute');
 const listaRoutes = require('./routes/listaCompraRoute');
 const roleRoutes = require('./routes/roleRoute');
+const actionRoutes = require('./routes/actionsRoute');
 
 app.use('/api/admin', adminRoutes);
 app.use('/api/auth', authRoutes);
@@ -23,6 +24,7 @@ app.use('/api/usuario', usuarioRoutes);
 app.use('/api/produto', produtoRoutes);
 app.use('/api/lista', listaRoutes);
 app.use('/api/role', roleRoutes);
+app.use('/api/listas', actionRoutes);
 
 // Iniciar servidor
 async function iniciar() {
