@@ -24,7 +24,7 @@ app.use('/api/usuario', usuarioRoutes);
 app.use('/api/produto', produtoRoutes);
 app.use('/api/lista', listaRoutes);
 app.use('/api/role', roleRoutes);
-app.use('/api/listas', actionRoutes);
+app.use('/api/action', actionRoutes);
 
 // Iniciar servidor
 async function iniciar() {
