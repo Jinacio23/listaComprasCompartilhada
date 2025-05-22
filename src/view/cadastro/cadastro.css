@@ -73,4 +73,7 @@ body {
     color: #ccc;
     cursor: pointer;
   }
+  img{
+    z-index: 1000;
+  }
   
