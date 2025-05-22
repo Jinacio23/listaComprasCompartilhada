@@ -8,7 +8,17 @@ module.exports = (sequelize, DataTypes) => {
     },
     nome: {type:DataTypes.STRING(45),allowNull: true},
     email: {type:DataTypes.STRING(100),allowNull: true},
-    senha: {type:DataTypes.STRING(100),allowNull: true}
+    senha: {type:DataTypes.STRING(100),allowNull: true},
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    }
   }, {
     tableName: 'tb_usuario',
     timestamps: false
