@@ -13,13 +13,19 @@
       <h2>Tela de Cadastro</h2>
     </div>
 
-    <div class="logo">
-      <!-- Ícone simples de carrinho -->
-      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00e0b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="9" cy="21" r="1"></circle>
-        <circle cx="20" cy="21" r="1"></circle>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-      </svg>
+    <!-- Carrossel substituindo a logo -->
+    <div class="carousel-container">
+      <div class="carousel-slide active"><img src="../../img/mulher.png" alt="Imagem 1"></div>
+      <div class="carousel-slide"><img src="../../img/mulher.png" alt="Imagem 2"></div>
+      <div class="carousel-slide"><img src="../../img/mulher.png" alt="Imagem 3"></div>
+      <div class="carousel-slide"><img src="../../img/mulher.png" alt="Imagem 4"></div>
+
+      <div class="carousel-selectors">
+        <span class="selector active" onclick="selectSlide(0)"></span>
+        <span class="selector" onclick="selectSlide(1)"></span>
+        <span class="selector" onclick="selectSlide(2)"></span>
+        <span class="selector" onclick="selectSlide(3)"></span>
+      </div>
     </div>
 
     <div class="form">
@@ -41,6 +47,6 @@
     </div>
   </div>
 
-  <script src="cadastro.js"></script>
+ <script src="cadastro.js"></script>
 </body>
 </html>
