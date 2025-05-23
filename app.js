@@ -11,18 +11,28 @@ app.use(express.json());
 const authRoutes = require('./routes/auth');
 const protegidoRoutes = require('./routes/protegidoExample'); // exemplo de rota protegida
 const adminRoutes = require('./routes/admin');
-const usuarioRoutes = require('./routes/usuarioRoute')
+const usuarioRoutes = require('./routes/usuarioRoute');
+const produtoRoutes = require('./routes/produtoRoute');
+const listaRoutes = require('./routes/listaCompraRoute');
+const roleRoutes = require('./routes/roleRoute');
+const actionRoutes = require('./routes/actionsRoute');
 
 app.use('/api/admin', adminRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/protegido', protegidoRoutes);
 app.use('/api/usuario', usuarioRoutes);
+app.use('/api/produto', produtoRoutes);
+app.use('/api/lista', listaRoutes);
+app.use('/api/role', roleRoutes);
+app.use('/api/action', actionRoutes);
 
 // Iniciar servidor
 async function iniciar() {
   try {
     await sequelize.authenticate();
     console.log('Conexão com o banco de dados estabelecida.');
+
+    await sequelize.sync({ alter: true });
 
     await criarUsuarioPadrao();
 
