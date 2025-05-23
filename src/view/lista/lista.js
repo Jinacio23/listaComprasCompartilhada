@@ -18,3 +18,24 @@ function atualizarTotal() {
 function adicionarItem() {
   alert("Função para adicionar item clicada!");
 }
+
+
+function abrirPopup() {
+  document.getElementById("popup").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+}
+
+function fecharPopup() {
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+}
+
+function gerarCodigo() {
+  const codigo = Math.random().toString(36).substr(2, 6).toUpperCase();
+  document.getElementById("codigoGerado").innerText = "Código: " + codigo;
+}
+
+function entrar() {
+  const codigo = document.getElementById("codigo").value;
+  alert("Entrando com o código: " + codigo);
+}
