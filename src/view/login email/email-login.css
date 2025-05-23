@@ -10,9 +10,13 @@
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    /* Remova o alinhamento vertical */
+    align-items: flex-start;
+    /* Ajuste o tamanho da altura */
+    min-height: 100vh;
+    padding-top: 40px; /* Espaço opcional do topo */
   }
+  
   
   .container {
     width: 90%;
