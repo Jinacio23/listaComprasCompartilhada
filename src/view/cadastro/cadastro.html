@@ -5,52 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela de Cadastro</title>
   <link rel="stylesheet" href="cadastro.css">
-  <style>
-    /* Estilo adicional para o carrossel, mantendo integração com o estilo original */
 
-    .carousel-container {
-      width: 100%;
-      max-width: 300px;
-      margin: 20px auto;
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-
-    .carousel-slide {
-      display: none;
-    }
-
-    .carousel-slide.active {
-      display: block;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
-
-    .carousel-selectors {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    .selector {
-      width: 12px;
-      height: 12px;
-      margin: 0 5px;
-      background-color: #ccc;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .selector.active {
-      background-color: #00e0b8;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -62,16 +17,13 @@
     <!-- Carrossel substituindo a logo -->
     <div class="carousel-container">
       <div class="carousel-slide active"><img src="../../img/mulher.png" alt="Imagem 1"></div>
-      <div class="carousel-slide"><img src="../../img/mulher.png" alt="Imagem 2"></div>
-      <div class="carousel-slide"><img src="../../img/mulher.png" alt="Imagem 3"></div>
-      <div class="carousel-slide"><img src="../../img/mulher.png" alt="Imagem 4"></div>
+      <div class="carousel-slide"><img src="../../img/mulherB.png" alt="Imagem 2"></div>
+      <div class="carousel-slide"><img src="../../img/homenP.png" alt="Imagem 3"></div>
+      <div class="carousel-slide"><img src="../../img/homenB.png" alt="Imagem 4"></div>
 
-      <div class="carousel-selectors">
-        <span class="selector active" onclick="selectSlide(0)"></span>
-        <span class="selector" onclick="selectSlide(1)"></span>
-        <span class="selector" onclick="selectSlide(2)"></span>
-        <span class="selector" onclick="selectSlide(3)"></span>
-      </div>
+      <!-- Setas de navegação -->
+      <span class="carousel-arrow prev" onclick="moveSlide(-1)">&#10094;</span>
+      <span class="carousel-arrow next" onclick="moveSlide(1)">&#10095;</span>
     </div>
 
     <div class="form">
@@ -88,40 +40,10 @@
       </ul>
 
       <button onclick="validarCadastro()">Confirmar</button>
-
       <p class="login">login</p>
     </div>
   </div>
 
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const selectors = document.querySelectorAll('.selector');
 
-    function selectSlide(index) {
-      slides[currentSlide].classList.remove('active');
-      selectors[currentSlide].classList.remove('active');
-      currentSlide = index;
-      slides[currentSlide].classList.add('active');
-      selectors[currentSlide].classList.add('active');
-    }
-
-    function validarCadastro() {
-      const email = document.getElementById("email").value;
-      const senha = document.getElementById("password").value;
-
-      if (!email || !senha) {
-        alert("Por favor, preencha todos os campos.");
-        return;
-      }
-
-      if (senha.length < 8) {
-        alert("A senha deve conter no mínimo 8 caracteres.");
-        return;
-      }
-
-      alert("Cadastro realizado com sucesso!");
-    }
-  </script>
 </body>
 </html>
