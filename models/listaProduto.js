@@ -22,8 +22,25 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     tableName: 'tb_listaCompras_has_tb_produto',
-    timestamps: false
+    timestamps: false,
+    indexes: [],
+    // 👇 Aqui está o nome curto da constraint de chave primária
+    uniqueKeys: {
+      lista_produto_pk: {
+        fields: ['tb_listaCompras_id', 'tb_Produto_id_Produto']
+      }
+    }
   });
+
+  ListaProduto.associate = (models) => {
+    ListaProduto.belongsTo(models.Produto, {
+      foreignKey: 'tb_Produto_id_Produto'
+    });
+
+    ListaProduto.belongsTo(models.ListaCompras, {
+      foreignKey: 'tb_listaCompras_id'
+    });
+  };
 
   return ListaProduto;
 };
