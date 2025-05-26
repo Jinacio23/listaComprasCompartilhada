@@ -1,29 +1,28 @@
 module.exports = (sequelize, DataTypes) => {
   const ListaCompras = sequelize.define('ListaCompras', {
-    id_listaCompras: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
-      allowNull: true
+      autoIncrement: true
     },
-    nome: {
-      type: DataTypes.STRING(45),
-      allowNull: true
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    }
+    nome: DataTypes.STRING(45),
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     tableName: 'tb_listaCompras',
     timestamps: false
   });
+
+  ListaCompras.associate = (models) => {
+    ListaCompras.belongsToMany(models.Usuario, {
+      through: models.UsuarioRole,
+      foreignKey: 'lista_id',
+      otherKey: 'usuario_id'
+    });
+    ListaCompras.hasMany(models.UsuarioRole, {
+      foreignKey: 'lista_id'
+    });
+  };
 
   return ListaCompras;
 };

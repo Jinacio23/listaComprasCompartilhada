@@ -1,6 +1,5 @@
 const express = require('express');
-const { ListaProduto, UsuarioRole } = require('../models/index.js');
-const usuario = require('../models/usuario.js');
+const { ListaProduto, UsuarioRole, Usuario, Role, ListaCompras } = require('../models/index.js');
 
 const router = express.Router();
 
@@ -50,29 +49,38 @@ router.post('/:idUsuario/:idRole/lista/:idLista', async (req, res) => {
   }
 
   try {
+    const usuario = await Usuario.findByPk(idUsuario);
+    const role = await Role.findByPk(idRole);
+    const lista = await ListaCompras.findByPk(idLista);
+
+    if (!usuario || !role || !lista) {
+      return res.status(404).json({ mensagem: 'Usuário, role ou lista não encontrada.' });
+    }
+
     const existente = await UsuarioRole.findOne({
       where: {
         usuario_id: idUsuario,
         role_id: idRole,
-        tb_listaCompras_id: idLista
+        lista_id: idLista
       }
     });
 
     if (existente) {
-      return res.status(400).json({ mensagem: 'Lista adicionada a usuário.' });
+      return res.status(400).json({ mensagem: 'Lista já adicionada ao usuário.' });
     }
 
     await UsuarioRole.create({
       usuario_id: idUsuario,
       role_id: idRole,
-      tb_listaCompras_id: idLista
+      lista_id: idLista
     });
 
-    res.status(201).json({ mensagem: 'Lista adicionada à usuário com sucesso.' });
+    res.status(201).json({ mensagem: 'Lista adicionada ao usuário com sucesso.' });
   } catch (error) {
     console.error('Erro ao adicionar lista à usuário:', error);
     res.status(500).json({ mensagem: 'Erro ao adicionar lista à usuário.', erro: error.message });
   }
 });
+
 
 module.exports = router;
