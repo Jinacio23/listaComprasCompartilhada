@@ -27,29 +27,29 @@ body {
   }
   
   .card {
-    height: 90px; 
-    border-radius: 45px;
+    height: 130px; 
+    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px; 
+    padding: 0 40px; 
     font-weight: bold;
-    font-size: 28px; 
+    font-size: 32px; 
     color: white;
     text-decoration: none;
   }
   
   .card::after {
     content: "👤👥";
-    font-size: 26px; 
+    font-size: 32px; 
   }
   
   .green { background-color: #4CAF50; }
   .blue { background-color: #5C9DF5; }
-  .gray { background-color: #888; }
+  .gray { background-color: #999999; }
   .purple { background-color: #8E44AD; }
   .teal { background-color: #1ABC9C; }
-  .yellow { background-color: #F1C40F; }
+  .yellow { background-color: #ffcc00; }
   
   .card:hover {
     filter: brightness(1.1);
