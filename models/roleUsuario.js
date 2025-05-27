@@ -1,34 +1,32 @@
 module.exports = (sequelize, DataTypes) => {
   const UsuarioRole = sequelize.define('UsuarioRole', {
-    usuarioId: {
+    usuario_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      primaryKey: true,
-      field: 'usuario_id'
+      primaryKey: true
     },
-    roleId: {
+    lista_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      primaryKey: true,
-      field: 'role_id'
+      primaryKey: true
     },
-    listaComprasId: {
+    role_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      primaryKey: true,
-      field: 'tb_listaCompras_id'
+      primaryKey: true
     }
-  }, {
+  },  {
     tableName: 'tb_usuario_has_tb_role',
     timestamps: false,
-    indexes: [
-      {
-        name: 'uniq_usr_role_lista',
-        unique: true,
-        fields: ['usuario_id', 'role_id', 'tb_listaCompras_id']
+    uniqueKeys: {
+      usuario_role_pk: {
+        fields: ['usuario_id', 'lista_id', 'role_id']
       }
-    ]
+    }
   });
+
+  UsuarioRole.associate = (models) => {
+    UsuarioRole.belongsTo(models.Usuario, { foreignKey: 'usuario_id' });
+    UsuarioRole.belongsTo(models.ListaCompras, { foreignKey: 'lista_id' });
+    UsuarioRole.belongsTo(models.Role, { foreignKey: 'role_id' });
+  };
 
   return UsuarioRole;
 };
