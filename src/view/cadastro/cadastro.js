@@ -25,7 +25,6 @@ form.addEventListener('submit', async (event) => {
   } catch (err) {
     alert("erro ao cadastrar!");
   }
-
 })
 
 let currentSlide = 0;
