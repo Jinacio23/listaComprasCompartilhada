@@ -58,34 +58,6 @@
     </form>
   </div>
 
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-
-    function moveSlide(direction) {
-      slides[currentSlide].classList.remove('active');
-      currentSlide += direction;
-      if (currentSlide < 0) currentSlide = slides.length - 1;
-      if (currentSlide >= slides.length) currentSlide = 0;
-      slides[currentSlide].classList.add('active');
-    }
-
-    function validarCadastro() {
-      const email = document.getElementById("email").value;
-      const senha = document.getElementById("password").value;
-
-      if (!email || !senha) {
-        alert("Por favor, preencha todos os campos.");
-        return;
-      }
-
-      if (senha.length < 8) {
-        alert("A senha deve conter no mínimo 8 caracteres.");
-        return;
-      }
-
-      alert("Cadastro realizado com sucesso!");
-    }
-  </script>
+  <script src="./cadastro.js"></script>
 </body>
 </html>
