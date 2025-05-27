@@ -142,3 +142,112 @@ h1 {
   background: #324B4A;
   transform: scale(1.1);
 }
+
+
+/* pop up */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0d1b2a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.popup input {
+  padding: 8px;
+  margin-top: 10px;
+  width: 80%;
+}
+
+.popup button {
+  margin: 5px;
+  padding: 10px 15px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+/* Botão convidar */
+.btn-convidar {
+  margin-left: 0;
+  padding: 0;
+  background: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-convidar img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 20px 10px 80px; /* bottom maior para não ficar atrás da barra fixa */
+  box-sizing: border-box;
+}
+
+/* Barra fixa inferior */
+.total {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 390px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(145deg, #00B6B0, #008B87);
+  padding: 15px 20px;
+  border-radius: 20px 20px 0 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
+  gap: 8px; /* espaço entre botões */
+  box-sizing: border-box;
+}
+
+.total span {
+  margin-right: auto; /* empurra para esquerda */
+}
+
+.total button {
+  background: #0A1E1D;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.total button:hover {
+  background: #000000;
+  transform: scale(1.1);
+}
