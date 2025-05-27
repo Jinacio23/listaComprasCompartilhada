@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Lista de Compras</title>
+  <link rel="stylesheet" href="lista.css" />
+  
+</head>
+
+
+  <a href="../pagina principal/principal.html"><div class="container">
+
+      <div class="menu-icon">
+
+<body>
+  <div class="container">
+    <div class="menu-icon">
+
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div></a>
+
+    <h1>LISTA</h1>
+
+    <div class="card-titulo">
+      <span>🛒 COMPRAS DO MÊS</span>
+    </div>
+
+    <form id="listaForm">
+      <div class="categoria">
+        <h3>Higiene</h3>
+        <label><input type="checkbox" value="1.89" /> Sabonete <span>R$ 1,89</span></label>
+        <label><input type="checkbox" value="17.98" /> Shampoo <span>R$ 17,98</span></label>
+        <label><input type="checkbox" value="21.98" /> Condicionador <span>R$ 21,98</span></label>
+        <label><input type="checkbox" value="7.98" /> Desodorante <span>R$ 7,98</span></label>
+        <label><input type="checkbox" value="3.99" /> Cotonetes <span>R$ 3,99</span></label>
+      </div>
+
+      <div class="categoria">
+        <h3>Hortifruti</h3>
+        <label><input type="checkbox" value="1.89" /> Cenoura <span>R$ 1,89</span></label>
+        <label><input type="checkbox" value="17.98" /> Tomate <span>R$ 17,98</span></label>
+        <label><input type="checkbox" value="21.98" /> Limão <span>R$ 21,98</span></label>
+        <label><input type="checkbox" value="7.98" /> Banana prata <span>R$ 7,98</span></label>
+        <label><input type="checkbox" value="7.98" /> Maçã <span>R$ 7,98</span></label>
+      </div>
+
+      <div class="categoria">
+        <h3>Limpeza</h3>
+        <label><input type="checkbox" value="5.67" /> Detergente Neutro <span>R$ 5,67</span></label>
+        <label><input type="checkbox" value="17.98" /> Omo Sabão Em Pó <span>R$ 17,98</span></label>
+        <label><input type="checkbox" value="21.98" /> Desengordurante <span>R$ 21,98</span></label>
+        <label><input type="checkbox" value="8.21" /> Água Sanitária QBQ 2L <span>R$ 8,21</span></label>
+        <label><input type="checkbox" value="7.23" /> Amaciante Mon Bijou 2L <span>R$ 7,23</span></label>
+      </div>
+    </form>
+
+    <div class="total">
+      <span id="totalValor">R$ 0,00</span>
+      <button onclick="adicionarItem()">+</button>
+      <button class="btn-convidar" onclick="abrirPopup()">
+        <img src="../../img/adicionar-amigo.png" alt="Convidar" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Popup de convite -->
+  <div class="overlay" id="overlay" onclick="fecharPopup()"></div>
+  <div class="popup" id="popup">
+    <h2>Compartilhar</h2>
+    <input type="text" id="codigo" placeholder="Digite o código" />
+    <p id="codigoGerado"></p>
+    <button onclick="entrar()">Entrar</button>
+    <button onclick="gerarCodigo()">Gerar Código</button>
+    <button onclick="fecharPopup()">Fechar</button>
+  </div>
+
+  <script src="lista.js"></script>
+  <script>
+   
+  </script>
+</body>
+
+</html>

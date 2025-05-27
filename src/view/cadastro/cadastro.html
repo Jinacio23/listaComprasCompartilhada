@@ -6,22 +6,36 @@
   <title>Tela de Cadastro</title>
   <link rel="stylesheet" href="cadastro.css">
 </head>
+<style>
+  .back-arrow {
+  font-size: 24px;
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+</style>
 <body>
   <div class="container">
     <div class="top-bar">
+      
       <a href="../login email/email-login.html">
         <span class="back-arrow">&#8592;</span>
       </a>
       <h2>Tela de Cadastro</h2>
     </div>
 
-    <div class="logo">
-      <!-- Ícone simples de carrinho -->
-      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00e0b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="9" cy="21" r="1"></circle>
-        <circle cx="20" cy="21" r="1"></circle>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-      </svg>
+   
+    <div class="carousel-container">
+      <div class="carousel-slide active"><img src="../../img/mulher.png" alt="Imagem 1"></div>
+      <div class="carousel-slide"><img src="../../img/mulherB.png" alt="Imagem 2"></div>
+      <div class="carousel-slide"><img src="../../img/homenP.png" alt="Imagem 3"></div>
+      <div class="carousel-slide"><img src="../../img/homenB.png" alt="Imagem 4"></div>
+
+    
+      <span class="carousel-arrow prev" onclick="moveSlide(-1)">&#10094;</span>
+      <span class="carousel-arrow next" onclick="moveSlide(1)">&#10095;</span>
     </div>
 
     <form class="form">
@@ -44,6 +58,34 @@
     </form>
   </div>
 
-  <script src="cadastro.js"></script>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    function moveSlide(direction) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = slides.length - 1;
+      if (currentSlide >= slides.length) currentSlide = 0;
+      slides[currentSlide].classList.add('active');
+    }
+
+    function validarCadastro() {
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("password").value;
+
+      if (!email || !senha) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+
+      if (senha.length < 8) {
+        alert("A senha deve conter no mínimo 8 caracteres.");
+        return;
+      }
+
+      alert("Cadastro realizado com sucesso!");
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Conta</title>
+  <link rel="stylesheet" href="menu.css">
+</head>
+<style>
+  .menu-icon {
+  font-size: 24px;
+  text-decoration: none;
+  color: #ffffff;
+  margin-left: 16px;
+  cursor: pointer;
+}
+.opcao {
+  display: block;
+  padding: 16px;
+  background-color: #f0f0f0;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.opcao:hover {
+  background-color: #eb6565;
+}
+
+
+</style>
+<body>
+
+  <!-- Menu superior -->
+  <header class="topo">
+    <a href="../pagina principal/principal.html" class="menu-icon">☰</a>
+    <h1 class="logo">LISTA</h1>
+  </header>
+
+  <!-- Card da Conta -->
+  <section class="card-conta">
+    <img src="../../img/cara.png" alt="Foto de perfil" class="avatar">
+    <div class="info-conta">
+      <p>Olá Francisco!</p>
+      <h2>CONTA</h2>
+    </div>
+  </section>
+
+  <!-- Navegação da Conta -->
+  <main class="menu-conta">
+
+    <a href="../lista compartilhadas/lista.html" class="opcao">
+      <div class="icone">📝</div>
+      <h3>LISTAS COMPARTILHADAS</h3>
+      <p>veja suas e outras lista compartilhadas</p>
+    </a>
+    
+
+    <div class="opcao">
+      <div class="icone">⏳</div>
+      <h3>HISTÓRICO DE COMPRAS</h3>
+      <p>veja suas compras anteriores</p>
+    </div>
+
+    <div class="opcao">
+      <div class="icone">💸</div>
+      <h3>MINHAS DESPESAS</h3>
+      <p>veja seus gastos de cada mês</p>
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    <a href="../../ajuda/ajuda.html"><h4>AJUDA</h4></a>
+  </footer>
+
+</body>
+</html>
