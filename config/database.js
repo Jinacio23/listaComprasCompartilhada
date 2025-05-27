@@ -1,10 +1,10 @@
 const dbConfig = {
   username: 'root',
-  password: 'senac',
+  password: '',
   database: 'listacompras',
   host: 'localhost',
   dialect: 'mysql',
-  port: 3307,
+  port: 3306,
   logging: console.log, // opcional, remove logs no console
 };
 

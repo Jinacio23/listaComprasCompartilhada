@@ -5,12 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela de Cadastro</title>
   <link rel="stylesheet" href="cadastro.css">
-
 </head>
+<style>
+  .back-arrow {
+  font-size: 24px;
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+</style>
 <body>
   <div class="container">
     <div class="top-bar">
-      <span class="back-arrow">&#8592;</span>
+      <a href="../login.html" class="back-arrow">&#8592;</a>
       <h2>Tela de Cadastro</h2>
     </div>
 
@@ -40,10 +49,38 @@
       </ul>
 
       <button onclick="validarCadastro()">Confirmar</button>
-      <p class="login">login</p>
+      <a href="../login email/email-login.html"><p class="login">login</p></a>
     </div>
   </div>
 
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
 
+    function moveSlide(direction) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = slides.length - 1;
+      if (currentSlide >= slides.length) currentSlide = 0;
+      slides[currentSlide].classList.add('active');
+    }
+
+    function validarCadastro() {
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("password").value;
+
+      if (!email || !senha) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+
+      if (senha.length < 8) {
+        alert("A senha deve conter no mínimo 8 caracteres.");
+        return;
+      }
+
+      alert("Cadastro realizado com sucesso!");
+    }
+  </script>
 </body>
 </html>
