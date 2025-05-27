@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const { sequelize } = require('./models');
 const criarUsuarioPadrao = require('./config/adminUser')
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Rotas
 const authRoutes = require('./routes/auth');

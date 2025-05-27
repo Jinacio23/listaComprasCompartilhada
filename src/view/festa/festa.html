@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Festa</title>
+  <link rel="stylesheet" href="festa.css" />
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="menu-icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <!-- Botão de voltar + título -->
+    <div class="header-festa">
+      <a href="../../view/pagina principal/principal.html" class="btn-voltar">←</a>
+      <h1>FESTA</h1>
+    </div>
+
+    <div class="card-titulo">
+      <span>🎉 LISTA DE ITENS PARA A FESTA</span>
+    </div>
+
+    <form id="listaFesta">
+      <div class="categoria">
+        <h3>Comidas</h3>
+        <label><input type="checkbox" value="35.00" /> Salgadinhos <span>R$ 35,00</span></label>
+        <label><input type="checkbox" value="60.00" /> Bolo de Aniversário <span>R$ 60,00</span></label>
+        <label><input type="checkbox" value="20.00" /> Docinhos <span>R$ 20,00</span></label>
+        <label><input type="checkbox" value="15.00" /> Pipoca <span>R$ 15,00</span></label>
+        <label><input type="checkbox" value="25.00" /> Sanduíches <span>R$ 25,00</span></label>
+      </div>
+
+      <div class="categoria">
+        <h3>Bebidas</h3>
+        <label><input type="checkbox" value="12.00" /> Refrigerantes <span>R$ 12,00</span></label>
+        <label><input type="checkbox" value="10.00" /> Sucos <span>R$ 10,00</span></label>
+        <label><input type="checkbox" value="8.00" /> Água <span>R$ 8,00</span></label>
+        <label><input type="checkbox" value="18.00" /> Energéticos <span>R$ 18,00</span></label>
+        <label><input type="checkbox" value="30.00" /> Bebidas alcoólicas <span>R$ 30,00</span></label>
+      </div>
+
+      <div class="categoria">
+        <h3>Decoração</h3>
+        <label><input type="checkbox" value="10.00" /> Balões <span>R$ 10,00</span></label>
+        <label><input type="checkbox" value="20.00" /> Painel de Festa <span>R$ 20,00</span></label>
+        <label><input type="checkbox" value="12.00" /> Toalhas de Mesa <span>R$ 12,00</span></label>
+        <label><input type="checkbox" value="15.00" /> Pratos e Copos <span>R$ 15,00</span></label>
+        <label><input type="checkbox" value="8.00" /> Velas <span>R$ 8,00</span></label>
+      </div>
+    </form>
+
+    <div class="total">
+      <span id="totalValor">R$ 0,00</span>
+      <a href="../../view/adicionar item/adicionaritem.html"><button onclick="adicionarItem()">+</button></a>
+      <button class="btn-convidar" onclick="abrirPopup()">
+        <img src="../../img/adicionar-amigo.png" alt="Convidar" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Popup de convite -->
+  <div class="overlay" id="overlay" onclick="fecharPopup()"></div>
+  <div class="popup" id="popup">
+    <h2>Compartilhar</h2>
+    <input type="text" id="codigo" placeholder="Digite o código" />
+    <p id="codigoGerado"></p>
+    <button onclick="entrar()">Entrar</button>
+    <button onclick="gerarCodigo()">Gerar Código</button>
+    <button onclick="fecharPopup()">Fechar</button>
+  </div>
+
+  <script src="festa.js"></script>
+</body>
+
+</html>

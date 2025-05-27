@@ -19,38 +19,43 @@
 <body>
   <div class="container">
     <div class="top-bar">
-      <a href="../login.html" class="back-arrow">&#8592;</a>
+      
+      <a href="../login email/email-login.html">
+        <span class="back-arrow">&#8592;</span>
+      </a>
       <h2>Tela de Cadastro</h2>
     </div>
 
-    <!-- Carrossel substituindo a logo -->
+   
     <div class="carousel-container">
       <div class="carousel-slide active"><img src="../../img/mulher.png" alt="Imagem 1"></div>
       <div class="carousel-slide"><img src="../../img/mulherB.png" alt="Imagem 2"></div>
       <div class="carousel-slide"><img src="../../img/homenP.png" alt="Imagem 3"></div>
       <div class="carousel-slide"><img src="../../img/homenB.png" alt="Imagem 4"></div>
 
-      <!-- Setas de navegação -->
+    
       <span class="carousel-arrow prev" onclick="moveSlide(-1)">&#10094;</span>
       <span class="carousel-arrow next" onclick="moveSlide(1)">&#10095;</span>
     </div>
 
-    <div class="form">
+    <form class="form">
+      <label>Digite seu nome</label>
+      <input type="name" placeholder="username" id="name">
+
       <label>Digite o seu e-mail</label>
       <input type="email" placeholder="seu e-mail" id="email">
 
       <label>Crie sua senha</label>
       <input type="password" placeholder="digite a senha" id="password">
 
-      <ul class="senha-requisitos">
+      <!-- <ul class="senha-requisitos">
         <li>A senha deve conter letras maiúsculas e minúsculas</li>
         <li>Números e caracteres</li>
         <li>Deve conter no mínimo 8</li>
-      </ul>
+      </ul> -->
 
-      <button onclick="validarCadastro()">Confirmar</button>
-      <a href="../login email/email-login.html"><p class="login">login</p></a>
-    </div>
+      <button>Confirmar</button>
+    </form>
   </div>
 
   <script>

@@ -16,6 +16,10 @@
     min-height: 100vh;
     padding-top: 40px; /* Espaço opcional do topo */
   }
+
+  .title{
+    font-size: 40px;
+  }
   
   
   .container {
@@ -27,6 +31,7 @@
   .top-bar {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     font-size: 16px;
     color: white;

@@ -1,4 +1,3 @@
-function criarLista() {
-    alert("Função de criar lista clicada!");
-  }
-  
+function redirecionarPara(pagina) {
+  window.location.href = pagina;
+}
