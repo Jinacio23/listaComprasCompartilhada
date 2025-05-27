@@ -27,7 +27,6 @@ form.addEventListener('submit', async (event) => {
   }
 })
 
-
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 
