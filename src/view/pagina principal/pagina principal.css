@@ -32,6 +32,11 @@ body {
     margin: 30px 0;
   }
   
+  .cards a.card {
+    text-decoration: none;
+    color: white;
+  }
+  
   .card {
     display: flex;
     align-items: center;
