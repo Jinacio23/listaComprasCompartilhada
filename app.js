@@ -18,6 +18,7 @@ const produtoRoutes = require('./routes/produtoRoute');
 const listaRoutes = require('./routes/listaCompraRoute');
 const roleRoutes = require('./routes/roleRoute');
 const actionRoutes = require('./routes/actionsRoute');
+const criarDadosPadrao = require('./config/defaultConfig');
 
 app.use('/api/admin', adminRoutes);
 app.use('/api/auth', authRoutes);
@@ -37,6 +38,7 @@ async function iniciar() {
     await sequelize.sync({ alter: true });
 
     await criarUsuarioPadrao();
+    await criarDadosPadrao();
 
     app.listen(3000, () => {
       console.log('Servidor rodando na porta 3000');
