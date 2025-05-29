@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,15 @@
   <link rel="stylesheet" href="adicionaritem.css">
 </head>
 <style>
-.menu-icon {
-  font-size: 24px;
-  text-decoration: none;
-  color: #ffffff;
-  margin-left: 16px;
-  cursor: pointer;
-}
+  .menu-icon {
+    font-size: 24px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 16px;
+    cursor: pointer;
+  }
 </style>
+
 <body>
 
   <header class="topo">
@@ -22,22 +24,29 @@
     <h1 class="logo">LISTA</h1>
   </header>
 
-  <!-- Box de título -->
-  <section class="box-titulo">
-    <h2>ADICIONAR ITEM</h2>
-  </section>
-
   <!-- Formulário -->
   <main class="formulario">
     <form class="form">
-      <input type="text" id="name"  placeholder="Nome da lista" required>
-      <!-- <input type="text" placeholder="Digite o nome do item:" required>
-      <input type="text" placeholder="Digite o peso do item. ex: kg, ml." required>
+      <h2>Criar lista</h2>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" placeholder="Nome da lista" required>
+      <label for="categoria">Categoria:</label>
+      <input type="text" id="categoria" name="categoria" placeholder="Informe a categoria">
+      <!-- <input type="text" placeholder="Digite o peso do item. ex: kg, ml." required>
       <input type="number" placeholder="Quantidade de itens" required> -->
-      <button type="submit">ADICIONAR</button>
     </form>
+    <section class="submit-buttons">
+      <span class="box-button">
+        <button onclick="cadastrarLista(0)">CRIAR LISTA</button>
+      </span>
+      <span class="box-button">
+        <button onclick="cadastrarLista(1)">ADICIONAR ITEM</button>
+      </span>
+    </section>
+
   </main>
 
   <script src="./cadastrar.js"></script>
 </body>
+
 </html>

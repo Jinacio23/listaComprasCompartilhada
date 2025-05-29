@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     nome: DataTypes.STRING(45),
+    categoria: DataTypes.STRING(45),
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
   }, {
