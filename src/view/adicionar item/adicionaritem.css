@@ -23,24 +23,28 @@ body {
     color: #FFFFFF;
     margin: 0;
   }
+
+  .submit-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   
-  .box-titulo {
+  .box-button {
     background-color: #00B6B0;
     border-radius: 12px;
     padding: 10px;
     text-align: center; 
-    margin: 20px;
+    margin: 0 20px;
   }
   
-  .box-titulo h2 {
+  .box-button button {
     font-size: 20px;
-    margin: 0;
-    color: #fff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
     font-weight: bold;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-
   }
   
   .voltar {
