@@ -23,7 +23,7 @@ async function cadastrarLista(val){
     if (val) {
       if(data.lista.id != null){
         localStorage.setItem('idList', JSON.stringify(data.lista.id));
-        window.location.href = '../lista/lista.html';
+        window.location.href = '../minhas listas/minhaslista.html';
       } else {
         alert("id não recuperado");
       }
