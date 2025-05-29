@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supermercado - Lista de Compras</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap">
+  <link rel="stylesheet" href="minhaslista.css">
+
+</head>
+<body>
+  <!-- MENU LATERAL -->
+  <div class="side-menu-bg" id="sideMenuBg"></div>
+  <nav class="side-menu" id="sideMenu" style="display:none;">
+    <div class="topo">
+      <h1 class="logo">LISTA</h1>
+      <button class="close-menu" id="closeMenuBtn" title="Fechar menu">&times;</button>
+    </div>
+    <section class="card-conta">
+      <img src="../../img/homenP.png" alt="Foto de perfil" class="avatar">
+      <div class="info-conta">
+        <p>Olá Francisco!</p>
+        <h2>CONTA</h2>
+      </div>
+    </section>
+    <main class="menu-conta">
+      <a href="../lista compartilhadas/lista.html" class="opcao">
+        <div class="icone">📝</div>
+        <h3>LISTAS COMPARTILHADAS</h3>
+        <p>veja suas e outras lista compartilhadas</p>
+      </a>
+      <div class="opcao">
+        <div class="icone">⏳</div>
+        <h3>HISTÓRICO DE COMPRAS</h3>
+        <p>veja suas compras anteriores</p>
+      </div>
+      <div class="opcao">
+        <div class="icone">💸</div>
+        <h3>MINHAS DESPESAS</h3>
+        <p>veja seus gastos de cada mês</p>
+      </div>
+    </main>
+    <footer class="rodape">
+      <a href="../../ajuda/ajuda.html"><h4>AJUDA</h4></a>
+    </footer>
+  </nav>
+  <div class="app-bar">
+    <button class="menu-hamburguer" id="openMenuBtn" title="Menu lateral">&#9776;</button>
+    <span class="back" title="Voltar">&#8592;</span>
+    <span class="label">Listas</span>
+    <span class="title">Supermercado</span>
+    <button class="icon-btn" title="Notificações">&#128276;</button>
+    <button class="icon-btn" title="Adicionar pessoa">&#128101;</button>
+    <button class="icon-btn" title="Mais opções">&#8942;</button>
+  </div>
+  <div class="container">
+    <div class="bag-img"></div>
+    <div class="main-title">O que você deseja comprar?</div>
+    <div class="subtitle">
+      Coloque o seu primeiro item na sua lista de compras digitando, por exemplo, tomates na busca.
+    </div>
+    <div class="up-arrow" id="openSheetBtn" title="Ver itens sugeridos">
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 7.5l6 6-1.41 1.41L12 10.33l-4.59 4.58L6 13.5z"/></svg>
+    </div>
+    <!-- Lista de compras visível -->
+    <div class="shopping-list" id="shoppingList"></div>
+  </div>
+  <div class="input-bar-container">
+    <div class="input-bar">
+      <input type="text" placeholder="Eu preciso de ..." id="item-input">
+      <button class="add-btn" title="Adicionar" id="addItemBtn">&#43;</button>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <div class="nav-item active">
+      <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Listas</span>
+    </div>
+    <div class="nav-item inactive">
+      <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.354a8 8 0 1 1 0 15.292a8 8 0 0 1 0-15.292ZM12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20Zm1 6h2a1 1 0 0 1 .117 1.993L15 10h-2v2a1 1 0 0 1-1.993.117L11 12v-2H9a1 1 0 0 1-.117-1.993L9 8h2V6a1 1 0 0 1 1.993-.117L13 6v2Z"/></svg>
+      <span>Inspiração</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10a5 5 0 0 0 0 10Zm0 2c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4Z"/></svg>
+      <span>Perfil</span>
+    </div>
+  </div>
+
+  <!-- Bottom Sheet Modal -->
+  <div class="modal-bg" id="modalBg">
+    <div class="bottom-sheet" id="bottomSheet">
+      <button class="sheet-close-btn" id="closeSheetBtn" title="Fechar">&times;</button>
+      <div class="sheet-header">Itens sugeridos</div>
+      <div class="sheet-search-bar">
+        <input type="text" placeholder="Buscar item..." id="sheetSearchInput">
+      </div>
+      <div class="sheet-list" id="sheetList"></div>
+    </div>
+  </div>
+  <!-- Troque o background-image em .bag-img por sua imagem real (grocery_bag.png) -->
+ <script src="minhaslista.js"></script>
+</body>
+</html>
