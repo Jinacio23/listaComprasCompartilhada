@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
 
 //cadastrar lista
 router.post('/register', async (req, res) => {
-    const { nome } = req.body;
+    const { nome, categoria } = req.body;
 
     try {
         // Verificar se lista já existe
@@ -37,9 +37,16 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ mensagem: 'Já existe outra lista com este nome' });
         }
 
-        const novaLista = await ListaCompras.create({ nome });
+        const novaLista = await ListaCompras.create({ nome, categoria });
 
-        res.status(201).json({ mensagem: 'Lista criada com sucesso', lista: novaLista });
+        res.status(201).json({ 
+            mensagem: 'Lista criada com sucesso', 
+            lista: { 
+                id: novaLista.id, 
+                nome: novaLista.nome,
+                categoria: novaLista.categoria 
+            }
+        });
     } catch (error) {
         res.status(500).json({ mensagem: 'Erro ao criar nova lista', erro: error.message });
     }
