@@ -19,6 +19,43 @@ sideMenuBg.onclick = function(e) {
   }
 };
 
+// -------- MODAL DE COMPARTILHAMENTO ---------
+const openShareModalBtn = document.getElementById("openShareModalBtn");
+const shareModalBg = document.getElementById("shareModalBg");
+const closeShareModalBtn = document.getElementById("closeShareModalBtn");
+const gerarCodigoBtn = document.getElementById("gerarCodigoBtn");
+const codigoGeradoBox = document.getElementById("codigoGerado");
+openShareModalBtn.onclick = function() {
+  shareModalBg.classList.add("show");
+  codigoGeradoBox.style.display = "none";
+};
+closeShareModalBtn.onclick = function() {
+  shareModalBg.classList.remove("show");
+};
+shareModalBg.onclick = function(e) {
+  if (e.target === shareModalBg) {
+    shareModalBg.classList.remove("show");
+  }
+};
+gerarCodigoBtn.onclick = function() {
+  // Gera um código aleatório de 6 caracteres
+  let codigo = '';
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  for (let i = 0; i < 6; i++) {
+    codigo += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  codigoGeradoBox.textContent = codigo;
+  codigoGeradoBox.style.display = "block";
+};
+document.getElementById('formEntrarCodigo').onsubmit = function(e) {
+  e.preventDefault();
+  const codigo = document.getElementById('codigoInput').value.trim();
+  if (codigo.length > 0) {
+    alert('Entrar na lista com código: ' + codigo); // Aqui você pode colocar a lógica de entrar na lista
+    shareModalBg.classList.remove("show");
+  }
+};
+
 // -------- LISTA DE COMPRAS ---------
 const suggestedItems = [
   { name: 'Leite', icon: '🥛' },
