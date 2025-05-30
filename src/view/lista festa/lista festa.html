@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Supermercado - Lista de Compras</title>
+  <title>Festa - Lista de Preparativos</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap">
 
-   <link rel="stylesheet" href="minhaslista.css">
 </head>
 <body>
   <!-- MENU LATERAL -->
   <div class="side-menu-bg" id="sideMenuBg"></div>
   <nav class="side-menu" id="sideMenu" style="display:none;">
     <div class="topo">
-      <h1 class="logo">LISTA</h1>
+      <h1 class="logo">FESTA</h1>
       <button class="close-menu" id="closeMenuBtn" title="Fechar menu">&times;</button>
     </div>
     <section class="card-conta">
@@ -24,22 +23,22 @@
       </div>
     </section>
     <main class="menu-conta">
-      <a href="../lista compartilhadas/lista.html" class="opcao">
-        <div class="icone">📝</div>
-        <h3>LISTAS COMPARTILHADAS</h3>
-        <p>veja suas e outras lista compartilhadas</p>
+      <a href="../festa compartilhadas/lista.html" class="opcao">
+        <div class="icone">🎉</div>
+        <h3>FESTAS COMPARTILHADAS</h3>
+        <p>veja suas e outras festas compartilhadas</p>
       </a>
       <div class="opcao">
         <div class="icone">⏳</div>
-        <h3>HISTÓRICO DE COMPRAS</h3>
-        <p>veja suas compras anteriores</p>
+        <h3>HISTÓRICO DE FESTAS</h3>
+        <p>veja as festas anteriores</p>
       </div>
       <div class="opcao">
-        <div class="icone">💸</div>
-        <h3>MINHAS DESPESAS</h3>
-        <p>veja seus gastos de cada mês</p>
+        <div class="icone">💰</div>
+        <h3>DESPESAS DA FESTA</h3>
+        <p>veja os gastos da festa</p>
       </div>
-      <a href="../../view/pagina principal/principal.html" class="opcao">
+      <a href="index.html" class="opcao">
         <div class="icone">🏠</div>
         <h3>VOLTAR PARA O INÍCIO</h3>
         <p>voltar para a tela inicial</p>
@@ -52,17 +51,17 @@
   <div class="app-bar">
     <button class="menu-hamburguer" id="openMenuBtn" title="Menu lateral">&#9776;</button>
     <span class="back" title="Voltar">&#8592;</span>
-    <span class="label">Listas</span>
-    <span class="title">Supermercado</span>
-    <button class="icon-btn" title="Notificações">&#128276;</button>
+    <span class="label">Festas</span>
+    <span class="title">Festa de Aniversário</span>
+    <button class="icon-btn" title="Notificações">&#127881;</button>
     <button class="icon-btn" title="Adicionar pessoa" id="openShareModalBtn">&#128101;</button>
     <!-- Removido os três pontinhos -->
   </div>
   <div class="container">
-    <div class="bag-img"></div>
-    <div class="main-title">O que você deseja comprar?</div>
+    <div class="festa-img"></div>
+    <div class="main-title">O que falta para a festa?</div>
     <div class="subtitle">
-      Coloque o seu primeiro item na sua lista de compras digitando, por exemplo, tomates na busca.
+      Comece sua lista de preparativos digitando, por exemplo, "balões coloridos" ou "bolo de chocolate".
     </div>
     <div class="up-arrow" id="openSheetBtn" title="Ver itens sugeridos">
       <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 7.5l6 6-1.41 1.41L12 10.33l-4.59 4.58L6 13.5z"/></svg>
@@ -71,7 +70,7 @@
   </div>
   <div class="input-bar-container">
     <div class="input-bar">
-      <input type="text" placeholder="Eu preciso de ..." id="item-input">
+      <input type="text" placeholder="Adicionar item..." id="item-input">
       <button class="add-btn" title="Adicionar" id="addItemBtn">&#43;</button>
     </div>
   </div>
@@ -79,13 +78,13 @@
   <div class="share-modal-bg" id="shareModalBg">
     <div class="share-modal">
       <button class="close-share-modal" id="closeShareModalBtn" title="Fechar">&times;</button>
-      <h2>Compartilhar lista</h2>
+      <h2>Compartilhar festa</h2>
       <div>
         <button class="gerar-codigo" id="gerarCodigoBtn">Gerar código</button>
         <div class="share-code-box" id="codigoGerado" style="display:none;">ABC123</div>
       </div>
       <form id="formEntrarCodigo" autocomplete="off">
-        <label for="codigoInput">Entrar em uma lista</label>
+        <label for="codigoInput">Entrar em uma festa</label>
         <input type="text" id="codigoInput" placeholder="Digite o código recebido" maxlength="12" required>
         <button class="entrar-codigo" type="submit">Entrar</button>
       </form>
@@ -95,13 +94,13 @@
   <div class="modal-bg" id="modalBg">
     <div class="bottom-sheet" id="bottomSheet">
       <button class="sheet-close-btn" id="closeSheetBtn" title="Fechar">&times;</button>
-      <div class="sheet-header">Itens sugeridos</div>
+      <div class="sheet-header">Sugestões para a festa</div>
       <div class="sheet-search-bar">
         <input type="text" placeholder="Buscar item..." id="sheetSearchInput">
       </div>
       <div class="sheet-list" id="sheetList"></div>
     </div>
   </div>
-<script src="minhaslista.js"></script>
+ 
 </body>
 </html>
