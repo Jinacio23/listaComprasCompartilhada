@@ -1,0 +1,190 @@
+
+// -------- MENU LATERAL ---------
+const openMenuBtn = document.getElementById("openMenuBtn");
+const closeMenuBtn = document.getElementById("closeMenuBtn");
+const sideMenu = document.getElementById("sideMenu");
+const sideMenuBg = document.getElementById("sideMenuBg");
+openMenuBtn.onclick = function() {
+  sideMenu.style.display = "flex";
+  setTimeout(() => sideMenuBg.classList.add("active"), 20);
+};
+closeMenuBtn.onclick = function() {
+  sideMenu.style.display = "none";
+  sideMenuBg.classList.remove("active");
+};
+sideMenuBg.onclick = function(e) {
+  if (e.target === sideMenuBg) {
+    sideMenu.style.display = "none";
+    sideMenuBg.classList.remove("active");
+  }
+};
+
+// -------- MODAL DE COMPARTILHAMENTO ---------
+const openShareModalBtn = document.getElementById("openShareModalBtn");
+const shareModalBg = document.getElementById("shareModalBg");
+const closeShareModalBtn = document.getElementById("closeShareModalBtn");
+const gerarCodigoBtn = document.getElementById("gerarCodigoBtn");
+const codigoGeradoBox = document.getElementById("codigoGerado");
+openShareModalBtn.onclick = function() {
+  shareModalBg.classList.add("show");
+  codigoGeradoBox.style.display = "none";
+};
+closeShareModalBtn.onclick = function() {
+  shareModalBg.classList.remove("show");
+};
+shareModalBg.onclick = function(e) {
+  if (e.target === shareModalBg) {
+    shareModalBg.classList.remove("show");
+  }
+};
+gerarCodigoBtn.onclick = function() {
+  // Gera um código aleatório de 6 caracteres
+  let codigo = '';
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  for (let i = 0; i < 6; i++) {
+    codigo += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  codigoGeradoBox.textContent = codigo;
+  codigoGeradoBox.style.display = "block";
+};
+document.getElementById('formEntrarCodigo').onsubmit = function(e) {
+  e.preventDefault();
+  const codigo = document.getElementById('codigoInput').value.trim();
+  if (codigo.length > 0) {
+    alert('Entrar na festa com código: ' + codigo); // Aqui você pode colocar a lógica de entrar na lista
+    shareModalBg.classList.remove("show");
+  }
+};
+
+// -------- LISTA DE PREPARATIVOS FESTA ---------
+const suggestedItems = [
+  { name: 'Balões coloridos', icon: '🎈' },
+  { name: 'Bolo de chocolate', icon: '🎂' },
+  { name: 'Refrigerante', icon: '🥤' },
+  { name: 'Copos descartáveis', icon: '🥛' },
+  { name: 'Guardanapos', icon: '🧻' },
+  { name: 'Chapéus de festa', icon: '🥳' },
+  { name: 'Docinhos', icon: '🍬' },
+  { name: 'Salgadinhos', icon: '🍟' },
+  { name: 'Pratos descartáveis', icon: '🍽️' },
+  { name: 'Suco', icon: '🧃' },
+  { name: 'Velas', icon: '🕯️' },
+  { name: 'Confetes', icon: '🎊' },
+  { name: 'Música', icon: '🎵' },
+  { name: 'Bexigas', icon: '🎈' },
+  { name: 'Mesa de doces', icon: '🍭' },
+  { name: 'Lembrancinhas', icon: '🎁' },
+  { name: 'Mesa principal', icon: '🍰' },
+  { name: 'Bebidas', icon: '🍾' },
+  { name: 'Pipoca', icon: '🍿' },
+  { name: 'Pão de queijo', icon: '🧀' },
+];
+let shoppingList = [];
+function renderShoppingList() {
+  const listEl = document.getElementById('shoppingList');
+  listEl.innerHTML = '';
+  if (shoppingList.length === 0) return;
+  shoppingList.forEach((item, idx) => {
+    const el = document.createElement('div');
+    el.className = 'shopping-item';
+    el.innerHTML = `
+      <span class="item-name">${item.icon ? item.icon + ' ' : ''}${item.name}</span>
+      <span class="item-qty">${item.qty}</span>
+      <button class="remove-btn" title="Remover" data-idx="${idx}">&times;</button>
+    `;
+    listEl.appendChild(el);
+  });
+  document.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.onclick = e => {
+      const idx = parseInt(btn.getAttribute('data-idx'));
+      shoppingList.splice(idx, 1);
+      renderShoppingList();
+    };
+  });
+}
+document.getElementById('addItemBtn').onclick = function() {
+  const input = document.getElementById('item-input');
+  const value = input.value.trim();
+  if (value.length === 0) return;
+  let found = shoppingList.find(i => i.name.toLowerCase() === value.toLowerCase());
+  if (found) {
+    found.qty += 1;
+  } else {
+    shoppingList.push({ name: value, qty: 1 });
+  }
+  input.value = '';
+  renderShoppingList();
+};
+document.getElementById('item-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('addItemBtn').click();
+});
+document.getElementById('openSheetBtn').onclick = function() {
+  document.getElementById('modalBg').classList.add('show');
+  document.getElementById('sheetSearchInput').value = '';
+  renderSheetList('');
+};
+document.getElementById('closeSheetBtn').onclick = function() {
+  document.getElementById('modalBg').classList.remove('show');
+};
+document.getElementById('modalBg').onclick = function(e) {
+  if (e.target === this) this.classList.remove('show');
+};
+document.getElementById('sheetSearchInput').oninput = function(e) {
+  renderSheetList(this.value);
+};
+function renderSheetList(filterStr) {
+  const listEl = document.getElementById('sheetList');
+  let items = suggestedItems;
+  if (filterStr && filterStr.trim().length > 0) {
+    const f = filterStr.trim().toLowerCase();
+    items = suggestedItems.filter(i => i.name.toLowerCase().includes(f));
+  }
+  listEl.innerHTML = '';
+  if (items.length === 0) {
+    listEl.innerHTML = '<div style="color:#bbb;text-align:center;padding:14px 0">Nenhum item encontrado.</div>';
+    return;
+  }
+  items.forEach((item, idx) => {
+    const curId = `sheet-qty-${idx}`;
+    const curQty = 1;
+    const el = document.createElement('div');
+    el.className = 'sheet-item';
+    el.innerHTML = `
+      <div class="sheet-item-img">${item.icon || ''}</div>
+      <div class="sheet-item-name">${item.name}</div>
+      <div class="sheet-qty-ctrl">
+        <button type="button" class="sheet-decr">-</button>
+        <input type="text" value="1" min="1" id="${curId}">
+        <button type="button" class="sheet-incr">+</button>
+      </div>
+      <button class="sheet-add-btn">Adicionar</button>
+    `;
+    setTimeout(() => {
+      const qtyInput = el.querySelector(`#${curId}`);
+      el.querySelector('.sheet-incr').onclick = () => {
+        qtyInput.value = Math.min(99, parseInt(qtyInput.value) + 1);
+      };
+      el.querySelector('.sheet-decr').onclick = () => {
+        qtyInput.value = Math.max(1, parseInt(qtyInput.value) - 1);
+      };
+      qtyInput.oninput = () => {
+        let v = parseInt(qtyInput.value.replace(/\D/g, '') || 1);
+        if (isNaN(v) || v < 1) v = 1;
+        if (v > 99) v = 99;
+        qtyInput.value = v;
+      };
+    }, 1);
+    el.querySelector('.sheet-add-btn').onclick = () => {
+      const qty = parseInt(el.querySelector(`#${curId}`).value) || 1;
+      let found = shoppingList.find(i => i.name.toLowerCase() === item.name.toLowerCase());
+      if (found) {
+        found.qty += qty;
+      } else {
+        shoppingList.push({ name: item.name, icon: item.icon, qty });
+      }
+      renderShoppingList();
+    };
+    listEl.appendChild(el);
+  });
+}
+renderShoppingList();
