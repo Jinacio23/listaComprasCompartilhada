@@ -8,6 +8,56 @@
   <link rel="stylesheet" href="historico.css">
 </head>
 <body>
+
+  <div class="side-menu-bg" id="sideMenuBg"></div>
+  <nav class="side-menu" id="sideMenu" style="display:none;">
+    <div class="topo">
+      <h1 class="logo">LISTA</h1>
+      <button class="close-menu" id="closeMenuBtn" title="Fechar menu">&times;</button>
+    </div>
+    <section class="card-conta">
+      <img src="../../img/homenP.png" alt="Foto de perfil" class="avatar">
+      <div class="info-conta">
+        <p>Olá Francisco!</p>
+        <h2>CONTA</h2>
+      </div>
+    </section>
+    <main class="menu-conta">
+      <a href="../lista compartilhadas/lista.html" class="opcao">
+        <div class="icone">📝</div>
+        <h3>LISTAS COMPARTILHADAS</h3>
+        <p>veja suas e outras lista compartilhadas</p>
+      </a>
+      <div class="opcao">
+        <div class="icone">⏳</div>
+        <h3>HISTÓRICO DE COMPRAS</h3>
+        <p>veja suas compras anteriores</p>
+      </div>
+      <div class="opcao">
+        <div class="icone">💸</div>
+        <h3>MINHAS DESPESAS</h3>
+        <p>veja seus gastos de cada mês</p>
+      </div>
+      <a href="../../view/pagina principal/principal.html" class="opcao">
+        <div class="icone">🏠</div>
+        <h3>VOLTAR PARA O INÍCIO</h3>
+        <p>voltar para a tela inicial</p>
+      </a>
+    </main>
+    <footer class="rodape">
+      <a href="../../ajuda/ajuda.html"><h4>AJUDA</h4></a>
+    </footer>
+  </nav>
+
+  <div class="app-bar">
+    <button class="menu-hamburguer" id="openMenuBtn" title="Menu lateral">&#9776;</button>
+    <span class="back" title="Voltar">&#8592;</span>
+    <span class="label">Listas</span>
+    <span class="title">Supermercado</span>
+    <button class="icon-btn" title="Notificações">&#128276;</button>
+    <button class="icon-btn" title="Adicionar pessoa" id="openShareModalBtn">&#128101;</button>
+  </div>
+
   <div class="container">
     <div class="header">
       <div class="menu-icon">☰</div>
@@ -18,7 +68,6 @@
     <button class="criar-lista"><a href="../adicionar item/adicionaritem.html" class="card">＋ CRIAR LISTA</a></button>
   </div>
 
-<body>
   <script src="historico.js"></script>
 </body>
 </html>

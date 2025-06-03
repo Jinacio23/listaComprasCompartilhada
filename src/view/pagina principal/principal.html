@@ -4,25 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minhas Listas</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap">
   <link rel="stylesheet" href="pagina principal.css">
+ 
 </head>
 <body>
+  <!-- MENU LATERAL -->
+  <div class="side-menu-bg" id="sideMenuBg"></div>
+  <nav class="side-menu" id="sideMenu" style="display:none;">
+    <div class="topo">
+      <h1 class="logo">LISTA</h1>
+      <button class="close-menu" id="closeMenuBtn" title="Fechar menu">&times;</button>
+    </div>
+    <section class="card-conta">
+      <img src="../../img/homenP.png" alt="Foto de perfil" class="avatar">
+      <div class="info-conta">
+        <p>Olá Francisco!</p>
+        <h2>CONTA</h2>
+      </div>
+    </section>
+    <main class="menu-conta">
+      <a href="../minhas listas/minhaslista.html" class="opcao">
+        <div class="icone">📝</div>
+        <h3>MINHAS LISTAS</h3>
+        <p>veja suas listas pessoais</p>
+      </a>
+      <a href="../lista festa/lista festa.html" class="opcao">
+        <div class="icone">🎉</div>
+        <h3>FESTAS</h3>
+        <p>veja suas festas</p>
+      </a>
+      <div class="opcao">
+        <div class="icone">⏳</div>
+        <h3>HISTÓRICO</h3>
+        <p>veja seu histórico de listas e festas</p>
+      </div>
+      <div class="opcao">
+        <div class="icone">💸</div>
+        <h3>DESPESAS</h3>
+        <p>veja seus gastos</p>
+      </div>
+      <a href="index.html" class="opcao">
+        <div class="icone">🏠</div>
+        <h3>VOLTAR PARA O INÍCIO</h3>
+        <p>voltar para a tela inicial</p>
+      </a>
+    </main>
+    <footer class="rodape">
+      <a href="../../ajuda/ajuda.html"><h4>AJUDA</h4></a>
+    </footer>
+  </nav>
+
   <div class="container">
 
-    <a href="../menu/menu.html" class="menu-icon">
+    <!-- Botão do menu hamburguer -->
+    <div class="menu-icon" id="openMenuBtn">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
-    </a>
+    </div>
     
-
     <div class="cards">
 
       <a href="../minhas listas/minhaslista.html" class="card" style="background-image: url('../../img/lista.jpeg');">
         <span>LISTA</span>
       </a>
     
-      <a href="../festa/festa.html" class="card" style="background-image: url('../../img/festa.jpeg');">
+      <a href="../lista festa/lista festa.html" class="card" style="background-image: url('../../img/festa.jpeg');">
         <span>FESTA</span>
       </a>
     
@@ -47,6 +95,6 @@
 
   </div>
 
-  <script src="pagina principal.js"></script>
+ <script src="pagina principal.js"></script>
 </body>
 </html>
